@@ -1,0 +1,23 @@
+<table>
+
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr *ngFor="let todo of todos">
+        <td>{{todo.title}}</td>
+        <td>{{todo.description}}</td>
+        <td><button (click)="deleteTodo(todo.id)">Delete</button></td>
+    </tr>
+
+</table>
+<button (click)="refresh()">Refresh</button>
+<form>
+    <label for="title">Title: </label>
+    <input id="title" type="text" name="title" [(ngModel)]="ngFormControl.title" />
+    <label for="description">Description: </label>
+    <input id="description" type="text" name="description" [(ngModel)]="ngFormControl.description" />
+    <button (click)="addTodo(ngFormControl.title, ngFormControl.description); ngFormControl = {};">Add</button>
+</form>
